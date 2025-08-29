@@ -4,11 +4,15 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useState } from 'react';
 import constructionWorkers from '@/assets/construction-workers.jpg';
 
 const Careers = () => {
   const { t } = useLanguage();
+  const [selectedJob, setSelectedJob] = useState<string>('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const jobOpenings = [
     {
@@ -199,142 +203,138 @@ const Careers = () => {
                     </ul>
                   </div>
 
-                  <Button variant="construction" className="w-full">
-                    {t('common.apply')}
-                    <ArrowRight className="h-4 w-4 mr-2 rtl:mr-0 rtl:ml-2" />
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="construction" 
+                        className="w-full"
+                        onClick={() => setSelectedJob(job.title)}
+                      >
+                        {t('common.apply')}
+                        <ArrowRight className="h-4 w-4 mr-2 rtl:mr-0 rtl:ml-2" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-2xl font-bold text-primary">
+                          تقدم بطلب توظيف - {job.title}
+                        </DialogTitle>
+                      </DialogHeader>
+                      
+                      <form className="space-y-6 mt-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <Label htmlFor="fullName" className="text-base font-medium">
+                              {t('common.name')} الكامل *
+                            </Label>
+                            <Input 
+                              id="fullName" 
+                              placeholder="ادخل اسمك الكامل"
+                              className="mt-2"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="email" className="text-base font-medium">
+                              {t('common.email')} *
+                            </Label>
+                            <Input 
+                              id="email" 
+                              type="email"
+                              placeholder="example@email.com"
+                              className="mt-2"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <Label htmlFor="phone" className="text-base font-medium">
+                              {t('common.phone')} *
+                            </Label>
+                            <Input 
+                              id="phone" 
+                              placeholder="+20 xxx xxx xxxx"
+                              className="mt-2"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="position" className="text-base font-medium">
+                              الوظيفة المطلوبة *
+                            </Label>
+                            <Input 
+                              id="position" 
+                              value={job.title}
+                              readOnly
+                              className="mt-2 bg-muted"
+                            />
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div>
+                            <Label htmlFor="experience" className="text-base font-medium">
+                              سنوات الخبرة
+                            </Label>
+                            <Input 
+                              id="experience" 
+                              placeholder="مثال: 5 سنوات"
+                              className="mt-2"
+                            />
+                          </div>
+                          <div>
+                            <Label htmlFor="education" className="text-base font-medium">
+                              المؤهل العلمي
+                            </Label>
+                            <Input 
+                              id="education" 
+                              placeholder="مثال: بكالوريوس هندسة مدنية"
+                              className="mt-2"
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <Label htmlFor="coverLetter" className="text-base font-medium">
+                            خطاب التغطية
+                          </Label>
+                          <Textarea 
+                            id="coverLetter"
+                            placeholder="اكتب نبذة عن خبراتك وسبب اهتمامك بالوظيفة..."
+                            rows={4}
+                            className="mt-2"
+                          />
+                        </div>
+
+                        <div>
+                          <Label htmlFor="cv" className="text-base font-medium">
+                            رفع السيرة الذاتية *
+                          </Label>
+                          <div className="mt-2 border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary transition-colors">
+                            <Upload className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
+                            <p className="text-muted-foreground mb-1 text-sm">
+                              اضغط لرفع السيرة الذاتية أو اسحب الملف هنا
+                            </p>
+                            <p className="text-xs text-muted-foreground">
+                              PDF, DOC, DOCX (الحد الأقصى 5 MB)
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                          <Button variant="hero" size="lg" className="flex-1">
+                            {t('common.submit')}
+                            <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
+                          </Button>
+                          <Button variant="outline" size="lg" type="button" className="flex-1">
+                            إعادة تعيين
+                          </Button>
+                        </div>
+                      </form>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Application Form */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-primary mb-4">
-                تقدم بطلب توظيف
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                املأ النموذج التالي وسنتواصل معك في أقرب وقت
-              </p>
-            </div>
-
-            <Card className="shadow-elevated">
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="fullName" className="text-base font-medium">
-                        {t('common.name')} الكامل *
-                      </Label>
-                      <Input 
-                        id="fullName" 
-                        placeholder="ادخل اسمك الكامل"
-                        className="mt-2"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email" className="text-base font-medium">
-                        {t('common.email')} *
-                      </Label>
-                      <Input 
-                        id="email" 
-                        type="email"
-                        placeholder="example@email.com"
-                        className="mt-2"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="phone" className="text-base font-medium">
-                        {t('common.phone')} *
-                      </Label>
-                      <Input 
-                        id="phone" 
-                        placeholder="+20 xxx xxx xxxx"
-                        className="mt-2"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="position" className="text-base font-medium">
-                        الوظيفة المطلوبة *
-                      </Label>
-                      <Input 
-                        id="position" 
-                        placeholder="مثال: مهندس مدني"
-                        className="mt-2"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="experience" className="text-base font-medium">
-                        سنوات الخبرة
-                      </Label>
-                      <Input 
-                        id="experience" 
-                        placeholder="مثال: 5 سنوات"
-                        className="mt-2"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="education" className="text-base font-medium">
-                        المؤهل العلمي
-                      </Label>
-                      <Input 
-                        id="education" 
-                        placeholder="مثال: بكالوريوس هندسة مدنية"
-                        className="mt-2"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="coverLetter" className="text-base font-medium">
-                      خطاب التغطية
-                    </Label>
-                    <Textarea 
-                      id="coverLetter"
-                      placeholder="اكتب نبذة عن خبراتك وسبب اهتمامك بالوظيفة..."
-                      rows={6}
-                      className="mt-2"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="cv" className="text-base font-medium">
-                      رفع السيرة الذاتية *
-                    </Label>
-                    <div className="mt-2 border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-primary transition-colors">
-                      <Upload className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                      <p className="text-muted-foreground mb-2">
-                        اضغط لرفع السيرة الذاتية أو اسحب الملف هنا
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        PDF, DOC, DOCX (الحد الأقصى 5 MB)
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                    <Button variant="hero" size="lg" className="flex-1">
-                      {t('common.submit')}
-                      <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
-                    </Button>
-                    <Button variant="outline" size="lg" type="button" className="flex-1">
-                      إعادة تعيين
-                    </Button>
-                  </div>
-                </form>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
