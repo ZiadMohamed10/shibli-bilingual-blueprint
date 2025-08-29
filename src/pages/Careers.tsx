@@ -16,82 +16,82 @@ const Careers = () => {
 
   const jobOpenings = [
     {
-      title: 'مهندس مدني أول',
-      department: 'الهندسة',
-      location: 'دمياط الجديدة، مصر',
-      type: 'دوام كامل',
-      experience: '5-8 سنوات',
-      description: 'نبحث عن مهندس مدني ذي خبرة للإشراف على مشروعات البنية التحتية والجسور',
+      title: t('jobs.seniorCivilEngineer'),
+      department: t('dept.engineering'),
+      location: t('location.newDamietta'),
+      type: t('common.fullTime'),
+      experience: t('exp.5to8years'),
+      description: t('job.seniorCivilEngineer.desc'),
       requirements: [
-        'بكالوريوس هندسة مدنية',
-        'خبرة لا تقل عن 5 سنوات',
-        'إجادة برامج التصميم الهندسي',
-        'مهارات قيادة فريق العمل',
+        t('job.seniorCivilEngineer.req1'),
+        t('job.seniorCivilEngineer.req2'),
+        t('job.seniorCivilEngineer.req3'),
+        t('job.seniorCivilEngineer.req4'),
       ],
     },
     {
-      title: 'مهندس معماري',
-      department: 'التصميم المعماري',
-      location: 'دمياط الجديدة، مصر',
-      type: 'دوام كامل',
-      experience: '3-5 سنوات',
-      description: 'للعمل في تصميم المشروعات السكنية والمرافق العامة',
+      title: t('jobs.architect'),
+      department: t('dept.architecture'),
+      location: t('location.newDamietta'),
+      type: t('common.fullTime'),
+      experience: t('exp.3to5years'),
+      description: t('job.architect.desc'),
       requirements: [
-        'بكالوريوس هندسة معمارية',
-        'خبرة في المشروعات السكنية',
-        'إتقان برامج التصميم المعماري',
-        'إبداع في التصميم',
+        t('job.architect.req1'),
+        t('job.architect.req2'),
+        t('job.architect.req3'),
+        t('job.architect.req4'),
       ],
     },
     {
-      title: 'مدير مشروع',
-      department: 'إدارة المشروعات',
-      location: 'دمياط الجديدة، مصر',
-      type: 'دوام كامل',
-      experience: '7-10 سنوات',
-      description: 'لإدارة وتنسيق المشروعات الكبيرة وضمان تسليمها في الوقت المحدد',
+      title: t('jobs.projectManager'),
+      department: t('dept.projectManagement'),
+      location: t('location.newDamietta'),
+      type: t('common.fullTime'),
+      experience: t('exp.7to10years'),
+      description: t('job.projectManager.desc'),
       requirements: [
-        'بكالوريوس هندسة أو إدارة أعمال',
-        'خبرة واسعة في إدارة المشروعات',
-        'شهادات إدارة المشروعات (PMP مفضلة)',
-        'مهارات تواصل وقيادة متميزة',
+        t('job.projectManager.req1'),
+        t('job.projectManager.req2'),
+        t('job.projectManager.req3'),
+        t('job.projectManager.req4'),
       ],
     },
     {
-      title: 'مهندس كهرباء',
-      department: 'الهندسة الكهربائية',
-      location: 'دمياط الجديدة، مصر',
-      type: 'دوام كامل',
-      experience: '2-4 سنوات',
-      description: 'للعمل في تصميم وتنفيذ الأنظمة الكهربائية للمشروعات',
+      title: t('jobs.electricalEngineer'),
+      department: t('dept.electrical'),
+      location: t('location.newDamietta'),
+      type: t('common.fullTime'),
+      experience: t('exp.2to4years'),
+      description: t('job.electricalEngineer.desc'),
       requirements: [
-        'بكالوريوس هندسة كهرباء',
-        'معرفة بالأنظمة الكهربائية للمباني',
-        'خبرة في التصميم الكهربائي',
-        'إلمام بالكودات المصرية',
+        t('job.electricalEngineer.req1'),
+        t('job.electricalEngineer.req2'),
+        t('job.electricalEngineer.req3'),
+        t('job.electricalEngineer.req4'),
       ],
     },
   ];
 
   const benefits = [
     {
-      title: 'راتب تنافسي',
-      description: 'نقدم رواتب تنافسية تتناسب مع الخبرة والكفاءة',
+      title: t('benefits.competitiveSalary'),
+      description: t('benefits.competitiveSalaryDesc'),
       icon: Briefcase,
     },
     {
-      title: 'التطوير المهني',
-      description: 'برامج تدريبية وتطويرية مستمرة لرفع مستوى الأداء',
+      title: t('benefits.professionalDevelopment'),
+      description: t('benefits.professionalDevelopmentDesc'),
       icon: Users,
     },
     {
-      title: 'بيئة عمل محفزة',
-      description: 'بيئة عمل إيجابية تشجع على الإبداع والابتكار',
+      title: t('benefits.workEnvironment'),
+      description: t('benefits.workEnvironmentDesc'),
       icon: MapPin,
     },
     {
-      title: 'مرونة في العمل',
-      description: 'ساعات عمل مرنة وإمكانية العمل من المنزل عند الحاجة',
+      title: t('benefits.workFlexibility'),
+      description: t('benefits.workFlexibilityDesc'),
       icon: Clock,
     },
   ];
@@ -109,7 +109,7 @@ const Careers = () => {
             {t('nav.careers')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            انضم إلى فريق العمل المتميز وكن جزءاً من مستقبل البناء والتعمير في مصر
+            {t('careers.subtitle')}
           </p>
         </div>
       </section>
@@ -119,10 +119,10 @@ const Careers = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              لماذا تعمل معنا؟
+              {t('careers.whyWorkWithUs')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              نؤمن بأن الموظفين هم أساس نجاح الشركة، ونسعى لتوفير بيئة عمل مثالية
+              {t('careers.whyWorkWithUsDesc')}
             </p>
           </div>
 
@@ -151,10 +151,10 @@ const Careers = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              الوظائف المتاحة
+              {t('careers.availableJobs')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              تصفح الفرص الوظيفية المتاحة وانضم إلى فريق العمل
+              {t('careers.availableJobsDesc')}
             </p>
           </div>
 
@@ -192,7 +192,7 @@ const Careers = () => {
                   </p>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-primary mb-3">المتطلبات:</h4>
+                    <h4 className="font-semibold text-primary mb-3">{t('careers.requirements')}</h4>
                     <ul className="space-y-2">
                       {job.requirements.map((req, reqIndex) => (
                         <li key={reqIndex} className="text-sm text-muted-foreground flex items-center">
@@ -217,7 +217,7 @@ const Careers = () => {
                     <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
                       <DialogHeader>
                         <DialogTitle className="text-2xl font-bold text-primary">
-                          تقدم بطلب توظيف - {job.title}
+                          {t('careers.applicationForm')} - {job.title}
                         </DialogTitle>
                       </DialogHeader>
                       
@@ -225,22 +225,22 @@ const Careers = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                             <Label htmlFor="fullName" className="text-base font-medium">
-                              {t('common.name')} الكامل *
+                              {t('careers.fullName')} {t('common.required')}
                             </Label>
                             <Input 
                               id="fullName" 
-                              placeholder="ادخل اسمك الكامل"
+                              placeholder={t('placeholder.fullName')}
                               className="mt-2"
                             />
                           </div>
                           <div>
                             <Label htmlFor="email" className="text-base font-medium">
-                              {t('common.email')} *
+                              {t('common.email')} {t('common.required')}
                             </Label>
                             <Input 
                               id="email" 
                               type="email"
-                              placeholder="example@email.com"
+                              placeholder={t('placeholder.email')}
                               className="mt-2"
                             />
                           </div>
@@ -249,17 +249,17 @@ const Careers = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                             <Label htmlFor="phone" className="text-base font-medium">
-                              {t('common.phone')} *
+                              {t('common.phone')} {t('common.required')}
                             </Label>
                             <Input 
                               id="phone" 
-                              placeholder="+20 xxx xxx xxxx"
+                              placeholder={t('placeholder.phone')}
                               className="mt-2"
                             />
                           </div>
                           <div>
                             <Label htmlFor="position" className="text-base font-medium">
-                              الوظيفة المطلوبة *
+                              {t('careers.position')} {t('common.required')}
                             </Label>
                             <Input 
                               id="position" 
@@ -273,21 +273,21 @@ const Careers = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div>
                             <Label htmlFor="experience" className="text-base font-medium">
-                              سنوات الخبرة
+                              {t('careers.experience')}
                             </Label>
                             <Input 
                               id="experience" 
-                              placeholder="مثال: 5 سنوات"
+                              placeholder={t('placeholder.experience')}
                               className="mt-2"
                             />
                           </div>
                           <div>
                             <Label htmlFor="education" className="text-base font-medium">
-                              المؤهل العلمي
+                              {t('careers.education')}
                             </Label>
                             <Input 
                               id="education" 
-                              placeholder="مثال: بكالوريوس هندسة مدنية"
+                              placeholder={t('placeholder.education')}
                               className="mt-2"
                             />
                           </div>
@@ -295,11 +295,11 @@ const Careers = () => {
 
                         <div>
                           <Label htmlFor="coverLetter" className="text-base font-medium">
-                            خطاب التغطية
+                            {t('careers.coverLetter')}
                           </Label>
                           <Textarea 
                             id="coverLetter"
-                            placeholder="اكتب نبذة عن خبراتك وسبب اهتمامك بالوظيفة..."
+                            placeholder={t('placeholder.coverLetter')}
                             rows={4}
                             className="mt-2"
                           />
@@ -307,15 +307,15 @@ const Careers = () => {
 
                         <div>
                           <Label htmlFor="cv" className="text-base font-medium">
-                            رفع السيرة الذاتية *
+                            {t('careers.uploadCV')} {t('common.required')}
                           </Label>
                           <div className="mt-2 border-2 border-dashed border-border rounded-lg p-6 text-center hover:border-primary transition-colors">
                             <Upload className="h-8 w-8 mx-auto text-muted-foreground mb-2" />
                             <p className="text-muted-foreground mb-1 text-sm">
-                              اضغط لرفع السيرة الذاتية أو اسحب الملف هنا
+                              {t('careers.uploadCVDesc')}
                             </p>
                             <p className="text-xs text-muted-foreground">
-                              PDF, DOC, DOCX (الحد الأقصى 5 MB)
+                              {t('careers.fileFormats')}
                             </p>
                           </div>
                         </div>
@@ -326,7 +326,7 @@ const Careers = () => {
                             <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
                           </Button>
                           <Button variant="outline" size="lg" type="button" className="flex-1">
-                            إعادة تعيين
+                            {t('common.reset')}
                           </Button>
                         </div>
                       </form>
@@ -343,19 +343,19 @@ const Careers = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            هل لديك استفسارات حول التوظيف؟
+            {t('careers.hrContact')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            تواصل مع قسم الموارد البشرية للحصول على المزيد من المعلومات
+            {t('careers.hrContactDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="construction" size="xl">
-              تواصل مع الموارد البشرية
+              {t('careers.contactHR')}
               <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
             </Button>
             <div className="text-primary-foreground/80">
-              <p>أو اتصل على: <span className="font-bold" dir="ltr">+20 57 xxx-xxxx</span></p>
+              <p>{t('careers.callUs')} <span className="font-bold" dir="ltr">+20 57 xxx-xxxx</span></p>
             </div>
           </div>
         </div>
