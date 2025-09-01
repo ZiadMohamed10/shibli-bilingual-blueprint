@@ -9,46 +9,46 @@ const About = () => {
   const values = [
     {
       icon: Award,
-      title: 'الجودة والتميز',
-      description: 'نلتزم بأعلى معايير الجودة في جميع مراحل العمل',
+      title: t('about.qualityExcellence'),
+      description: t('about.qualityDesc'),
     },
     {
       icon: Users,
-      title: 'الشراكة والتعاون',
-      description: 'نبني علاقات طويلة المدى مع عملائنا وشركائنا',
+      title: t('about.partnershipCooperation'),
+      description: t('about.partnershipDesc'),
     },
     {
       icon: Target,
-      title: 'الالتزام بالمواعيد',
-      description: 'نحرص على تسليم المشروعات في الوقت المحدد',
+      title: t('about.commitmentDeadlines'),
+      description: t('about.commitmentDesc'),
     },
     {
       icon: Eye,
-      title: 'الشفافية والثقة',
-      description: 'نتعامل بشفافية كاملة مع جميع أصحاب المصلحة',
+      title: t('about.transparencyTrust'),
+      description: t('about.transparencyDesc'),
     },
   ];
 
   const milestones = [
     {
       year: '2008',
-      title: 'تأسيس الشركة',
-      description: 'بداية رحلتنا في عالم المقاولات والتعمير',
+      title: t('about.establishmentYear'),
+      description: t('about.establishmentDesc'),
     },
     {
       year: '2015',
-      title: 'أول مشروع كبير',
-      description: 'تنفيذ مجمع سكني متكامل بدمياط الجديدة',
+      title: t('about.firstMajorProject'),
+      description: t('about.firstProjectDesc'),
     },
     {
       year: '2020',
-      title: 'التوسع الإقليمي',
-      description: 'بدء العمل في محافظات متعددة بجمهورية مصر العربية',
+      title: t('about.regionalExpansion'),
+      description: t('about.expansionDesc'),
     },
     {
       year: '2024',
-      title: 'الحاضر والمستقبل',
-      description: 'مواصلة النمو والتطوير لخدمة التنمية الوطنية',
+      title: t('about.presentFuture'),
+      description: t('about.presentDesc'),
     },
   ];
 
@@ -65,7 +65,7 @@ const About = () => {
             {t('about.title')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            شركة رائدة في مجال المقاولات والتعمير، نساهم في بناء مستقبل مصر من خلال مشروعات البنية التحتية الحيوية
+            {t('about.subtitle')}
           </p>
         </div>
       </section>
@@ -80,12 +80,10 @@ const About = () => {
               </h2>
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  مهمتنا هي المساهمة في التنمية الشاملة لجمهورية مصر العربية من خلال تنفيذ مشروعات 
-                  البنية التحتية الحيوية بأعلى معايير الجودة والكفاءة.
+                  {t('about.missionDesc1')}
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  نلتزم بتوفير حلول مبتكرة ومستدامة تلبي احتياجات المجتمع وتساهم في رفع مستوى 
-                  المعيشة للمواطنين.
+                  {t('about.missionDesc2')}
                 </p>
               </div>
             </div>
@@ -96,12 +94,10 @@ const About = () => {
               </h2>
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  رؤيتنا أن نكون الشركة الرائدة في مجال المقاولات والتعمير على مستوى الجمهورية، 
-                  والشريك الأول للحكومة في تنفيذ المشروعات القومية الكبرى.
+                  {t('about.visionDesc1')}
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  نسعى لتحقيق التميز والابتكار في جميع أعمالنا، والمساهمة الفاعلة في بناء 
-                  مصر الحديثة التي نطمح إليها جميعاً.
+                  {t('about.visionDesc2')}
                 </p>
               </div>
             </div>
@@ -117,7 +113,7 @@ const About = () => {
               {t('about.values')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              القيم التي توجه عملنا وتحدد هويتنا كشركة رائدة في المجال
+              {t('about.valuesSubtitle')}
             </p>
           </div>
 
@@ -146,10 +142,10 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              تاريخنا ومحطاتنا المهمة
+              {t('about.historyMilestones')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              رحلة نمو وتطور مستمر في خدمة التنمية والتعمير
+              {t('about.historySubtitle')}
             </p>
           </div>
 
@@ -191,11 +187,10 @@ const About = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">
-            فريق الإدارة
+            {t('about.managementTeam')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-12 max-w-3xl mx-auto">
-            فريق من المهندسين والخبراء المتخصصين في مجال المقاولات والتعمير، 
-            يقود الشركة نحو تحقيق أهدافها الاستراتيجية
+            {t('about.teamSubtitle')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -204,7 +199,7 @@ const About = () => {
                 <Users className="h-16 w-16 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-2">المهندس / أحمد الشبلي</h3>
-              <p className="text-primary-foreground/80">رئيس مجلس الإدارة والعضو المنتدب</p>
+              <p className="text-primary-foreground/80">{t('about.chairmanTitle')}</p>
             </div>
             
             <div className="text-center">
@@ -212,7 +207,7 @@ const About = () => {
                 <Users className="h-16 w-16 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-2">المهندس / محمد الشبلي</h3>
-              <p className="text-primary-foreground/80">مدير العمليات والمشروعات</p>
+              <p className="text-primary-foreground/80">{t('about.operationsTitle')}</p>
             </div>
             
             <div className="text-center">
@@ -220,7 +215,7 @@ const About = () => {
                 <Users className="h-16 w-16 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-2">المهندسة / فاطمة الشبلي</h3>
-              <p className="text-primary-foreground/80">مدير الشؤون المالية والإدارية</p>
+              <p className="text-primary-foreground/80">{t('about.financialTitle')}</p>
             </div>
           </div>
         </div>

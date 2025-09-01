@@ -13,37 +13,37 @@ const Home = () => {
     {
       icon: Construction,
       title: t('services.bridges'),
-      description: 'تصميم وتنفيذ الجسور والطرق السريعة بأحدث التقنيات',
+      description: t('services.bridgesDesc'),
     },
     {
       icon: Building2,
       title: t('services.housing'),
-      description: 'مشروعات سكنية متكاملة تلبي احتياجات المجتمع',
+      description: t('services.housingDesc'),
     },
     {
       icon: HomeIcon,
       title: t('services.infrastructure'),
-      description: 'تطوير البنية التحتية للمدن والمناطق الحضرية',
+      description: t('services.infrastructureDesc'),
     },
     {
       icon: Wrench,
       title: t('services.facilities'),
-      description: 'إنشاء وصيانة المرافق العامة والحيوية',
+      description: t('services.facilitiesDesc'),
     },
   ];
 
   const featuredProjects = [
     {
-      title: 'جسر دمياط الجديد',
-      description: 'مشروع استراتيجي لربط ضفتي النيل',
+      title: t('project.newDamiettaBridge'),
+      description: t('project.bridgeDesc'),
       image: heroImage,
-      status: 'جاري التنفيذ',
+      status: t('status.ongoing'),
     },
     {
-      title: 'مجمع سكني متكامل',
-      description: '500 وحدة سكنية بالمرافق الكاملة',
+      title: t('project.residentialPhase1'),
+      description: t('project.residential200Units'),
       image: constructionWorkers,
-      status: 'مكتمل',
+      status: t('status.completed'),
     },
   ];
 
@@ -96,7 +96,7 @@ const Home = () => {
               {t('services.title')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              نقدم حلولاً متكاملة في مجال المقاولات والتعمير
+              {t('home.servicesSubtitle')}
             </p>
           </div>
 
@@ -121,7 +121,7 @@ const Home = () => {
           <div className="text-center mt-12">
             <Button variant="construction" size="lg" asChild>
               <Link to="/services">
-                عرض جميع الخدمات
+                {t('home.viewAllServices')}
                 <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
               </Link>
             </Button>
@@ -134,10 +134,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              مشروعات مميزة
+              {t('home.featuredProjects')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              نفخر بتنفيذ مشروعات استراتيجية تخدم التنمية الوطنية
+              {t('home.featuredProjectsSubtitle')}
             </p>
           </div>
 
@@ -175,7 +175,7 @@ const Home = () => {
           <div className="text-center mt-12">
             <Button variant="hero" size="lg" asChild>
               <Link to="/projects">
-                عرض جميع المشروعات
+                {t('home.viewAllProjects')}
                 <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
               </Link>
             </Button>
@@ -191,25 +191,24 @@ const Home = () => {
         <div className="absolute inset-0 bg-primary/90"></div>
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h2 className="text-4xl font-bold mb-6">
-            لماذا تختار شركة الشبلي؟
+            {t('home.whyChooseShibli')}
           </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            مع خبرة تمتد لسنوات في مجال المقاولات والتعمير، نلتزم بتقديم أعلى معايير الجودة 
-            والكفاءة في تنفيذ المشروعات الحيوية التي تخدم التنمية الشاملة.
+            {t('home.whyChooseDescription')}
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">15+</div>
-              <div className="text-lg">سنوات خبرة</div>
+              <div className="text-lg">{t('home.experienceYears')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">100+</div>
-              <div className="text-lg">مشروع مكتمل</div>
+              <div className="text-lg">{t('home.completedProjects')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-secondary mb-2">500+</div>
-              <div className="text-lg">عميل راضي</div>
+              <div className="text-lg">{t('home.satisfiedClients')}</div>
             </div>
           </div>
 
