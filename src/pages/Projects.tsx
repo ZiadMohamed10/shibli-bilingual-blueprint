@@ -13,51 +13,51 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const categories = [
-    { id: 'all', label: 'جميع المشروعات' },
-    { id: 'bridges', label: 'الجسور والطرق' },
-    { id: 'housing', label: 'مشروعات سكنية' },
-    { id: 'infrastructure', label: 'البنية التحتية' },
-    { id: 'facilities', label: 'المرافق العامة' },
+    { id: 'all', label: t('projects.allProjects') },
+    { id: 'bridges', label: t('projects.bridgesRoads') },
+    { id: 'housing', label: t('projects.housingProjects') },
+    { id: 'infrastructure', label: t('projects.infrastructure') },
+    { id: 'facilities', label: t('projects.publicFacilities') },
   ];
 
   const ongoingProjects = [
     {
       id: 1,
-      title: 'جسر دمياط الجديد الاستراتيجي',
-      description: 'مشروع استراتيجي لربط ضفتي النيل بطول 2.5 كيلومتر، يهدف لتسهيل حركة التجارة والمرور',
-      location: 'دمياط الجديدة، مصر',
+      title: t('projects.newDamiettaBridge'),
+      description: t('projects.bridgeDesc'),
+      location: t('projects.newDamietta'),
       startDate: 'يناير 2023',
       expectedCompletion: 'ديسمبر 2024',
       progress: 75,
       category: 'bridges',
       image: heroImage,
-      status: 'جاري التنفيذ',
+      status: t('projects.inProgress'),
       budget: '500 مليون جنيه',
     },
     {
       id: 2,
-      title: 'مجمع سكني متكامل - المرحلة الثانية',
-      description: 'مشروع سكني يضم 300 وحدة سكنية مع جميع المرافق والخدمات الأساسية',
-      location: 'دمياط الجديدة، مصر',
+      title: t('projects.integratedHousingPhase2'),
+      description: t('projects.housingDesc'),
+      location: t('projects.newDamietta'),
       startDate: 'مارس 2024',
       expectedCompletion: 'مارس 2026',
       progress: 25,
       category: 'housing',
       image: constructionWorkers,
-      status: 'قيد التنفيذ',
+      status: t('projects.underImplementation'),
       budget: '300 مليون جنيه',
     },
     {
       id: 3,
-      title: 'تطوير شبكة الطرق الداخلية',
-      description: 'تطوير وتحسين شبكة الطرق الداخلية للمدينة مع إضافة مسارات جديدة للمشاة والدراجات',
-      location: 'دمياط، مصر',
+      title: t('projects.roadNetworkDevelopment'),
+      description: t('projects.roadDesc'),
+      location: t('projects.damietta'),
       startDate: 'يونيو 2024',
       expectedCompletion: 'يونيو 2025',
       progress: 40,
       category: 'infrastructure',
       image: heroImage,
-      status: 'مرحلة متقدمة',
+      status: t('projects.advancedStage'),
       budget: '150 مليون جنيه',
     },
   ];
@@ -65,35 +65,35 @@ const Projects = () => {
   const completedProjects = [
     {
       id: 4,
-      title: 'مجمع سكني متكامل - المرحلة الأولى',
-      description: 'مجمع سكني يضم 200 وحدة سكنية مع مسجد ومدرسة ومركز تجاري',
-      location: 'دمياط الجديدة، مصر',
+      title: t('projects.integratedHousingPhase1'),
+      description: t('projects.housingPhase1Desc'),
+      location: t('projects.newDamietta'),
       completionDate: 'ديسمبر 2023',
       category: 'housing',
       image: constructionWorkers,
-      status: 'مكتمل',
+      status: t('projects.completed'),
       budget: '200 مليون جنيه',
     },
     {
       id: 5,
-      title: 'كوبري النصر الحضري',
-      description: 'جسر حضري بطول 800 متر يربط بين منطقتين سكنيتين مهمتين',
-      location: 'دمياط، مصر',
+      title: t('projects.nasrUrbanBridge'),
+      description: t('projects.nasrBridgeDesc'),
+      location: t('projects.damietta'),
       completionDate: 'سبتمبر 2023',
       category: 'bridges',
       image: heroImage,
-      status: 'مكتمل',
+      status: t('projects.completed'),
       budget: '80 مليون جنيه',
     },
     {
       id: 6,
-      title: 'مركز دمياط الطبي المتخصص',
-      description: 'مركز طبي متكامل يضم عيادات خارجية وقسم طوارئ ومعامل تحليل',
-      location: 'دمياط، مصر',
+      title: t('projects.damiettaMedicalCenter'),
+      description: t('projects.medicalCenterDesc'),
+      location: t('projects.damietta'),
       completionDate: 'مايو 2023',
       category: 'facilities',
       image: constructionWorkers,
-      status: 'مكتمل',
+      status: t('projects.completed'),
       budget: '120 مليون جنيه',
     },
   ];
@@ -116,11 +116,11 @@ const Projects = () => {
         </div>
         {showProgress && (
           <div className="absolute bottom-4 left-4 right-4">
-            <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3 text-white">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-sm">نسبة الإنجاز</span>
-                <span className="text-sm font-bold">{project.progress}%</span>
-              </div>
+              <div className="bg-black/50 backdrop-blur-sm rounded-lg p-3 text-white">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm">{t('projects.completionPercentage')}</span>
+                  <span className="text-sm font-bold">{project.progress}%</span>
+                </div>
               <div className="w-full bg-white/30 rounded-full h-2">
                 <div 
                   className="bg-secondary h-2 rounded-full transition-all duration-300"
@@ -153,7 +153,7 @@ const Projects = () => {
         
         <div className="flex justify-between items-center">
           <span className="text-sm font-medium text-secondary">
-            الميزانية: {project.budget}
+            {t('projects.budget')}: {project.budget}
           </span>
           <Button variant="professional" size="sm">
             {t('common.details')}
@@ -177,7 +177,7 @@ const Projects = () => {
             {t('nav.projects')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            نفخر بتنفيذ مشروعات استراتيجية تساهم في التنمية الشاملة وتخدم المجتمع
+            {t('projects.subtitle')}
           </p>
         </div>
       </section>
@@ -185,10 +185,10 @@ const Projects = () => {
       {/* Filter Section */}
       <section className="py-12 bg-background border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4">
             <div className="flex items-center mb-4">
               <Filter className="h-5 w-5 text-muted-foreground mr-2 rtl:mr-0 rtl:ml-2" />
-              <span className="text-muted-foreground font-medium">تصفية حسب النوع:</span>
+              <span className="text-muted-foreground font-medium">{t('projects.filterByType')}</span>
             </div>
             {categories.map((category) => (
               <Button
@@ -209,17 +209,17 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="ongoing" className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-              <TabsTrigger value="ongoing" className="text-lg">مشروعات قيد التنفيذ</TabsTrigger>
-              <TabsTrigger value="completed" className="text-lg">مشروعات مكتملة</TabsTrigger>
+              <TabsTrigger value="ongoing" className="text-lg">{t('projects.ongoingProjects')}</TabsTrigger>
+              <TabsTrigger value="completed" className="text-lg">{t('projects.completedProjects')}</TabsTrigger>
             </TabsList>
             
             <TabsContent value="ongoing">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-primary mb-4">
-                  المشروعات قيد التنفيذ
+                  {t('projects.ongoingProjects')}
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  نعمل حالياً على تنفيذ مشروعات استراتيجية متنوعة
+                  {t('projects.ongoingDesc')}
                 </p>
               </div>
               
@@ -233,10 +233,10 @@ const Projects = () => {
             <TabsContent value="completed">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-primary mb-4">
-                  المشروعات المكتملة
+                  {t('projects.completedProjects')}
                 </h2>
                 <p className="text-xl text-muted-foreground">
-                  مشروعات تم تسليمها بنجاح وحققت أهدافها التنموية
+                  {t('projects.completedDesc')}
                 </p>
               </div>
               
@@ -255,19 +255,19 @@ const Projects = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              إحصائيات مشروعاتنا
+              {t('projects.projectStats')}
             </h2>
             <p className="text-xl text-muted-foreground">
-              أرقام تعكس خبرتنا وتميزنا في المجال
+              {t('projects.projectStatsDesc')}
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: '120+', label: 'مشروع مكتمل' },
-              { number: '15+', label: 'مشروع قيد التنفيذ' },
-              { number: '2.5B+', label: 'جنيه قيمة المشروعات' },
-              { number: '95%', label: 'معدل رضا العملاء' },
+              { number: '120+', label: t('projects.completedProjectsCount') },
+              { number: '15+', label: t('projects.ongoingProjectsCount') },
+              { number: '2.5B+', label: t('projects.projectsValue') },
+              { number: '95%', label: t('projects.satisfactionRate') },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
@@ -286,16 +286,16 @@ const Projects = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            هل تريد أن نكون شريكك في مشروعك القادم؟
+            {t('projects.partnerInProject')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            تواصل معنا لمناقشة متطلبات مشروعك والحصول على عرض سعر مفصل
+            {t('projects.partnerDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="construction" size="xl" asChild>
               <Link to="/contact">
-                ابدأ مشروعك معنا
+                {t('projects.startProject')}
                 <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
               </Link>
             </Button>
@@ -306,7 +306,7 @@ const Projects = () => {
               asChild
             >
               <Link to="/about">
-                تعرف على الشركة
+                {t('projects.learnAboutCompany')}
               </Link>
             </Button>
           </div>

@@ -8,6 +8,7 @@ interface LanguageContextType {
   direction: Direction;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  tArray: (key: string) => string[];
 }
 
 interface Translations {
@@ -16,6 +17,132 @@ interface Translations {
     en: string;
   };
 }
+
+interface ArrayTranslations {
+  [key: string]: {
+    ar: string[];
+    en: string[];
+  };
+}
+
+const arrayTranslations: ArrayTranslations = {
+  'services.bridgesFeatures': {
+    ar: [
+      'تصميم الجسور المعلقة والكباري',
+      'إنشاء الطرق السريعة والدائرية',
+      'أعمال الرصف والبنية التحتية للطرق',
+      'صيانة وتطوير الطرق الموجودة',
+    ],
+    en: [
+      'Design of suspension bridges and overpasses',
+      'Construction of highways and ring roads',
+      'Road paving and infrastructure work',
+      'Maintenance and development of existing roads',
+    ]
+  },
+  'services.housingFeatures': {
+    ar: [
+      'مجمعات سكنية متكاملة',
+      'الوحدات السكنية الاقتصادية',
+      'المباني الإدارية والتجارية',
+      'مشروعات الإسكان الاجتماعي',
+    ],
+    en: [
+      'Integrated residential complexes',
+      'Affordable housing units',
+      'Administrative and commercial buildings',
+      'Social housing projects',
+    ]
+  },
+  'services.infrastructureFeatures': {
+    ar: [
+      'شبكات المياه والصرف الصحي',
+      'شبكات الكهرباء والاتصالات',
+      'تخطيط وتطوير المناطق الحضرية',
+      'البنية التحتية للمدن الجديدة',
+    ],
+    en: [
+      'Water and sewage networks',
+      'Electricity and telecommunications networks',
+      'Urban area planning and development',
+      'Infrastructure for new cities',
+    ]
+  },
+  'services.facilitiesFeatures': {
+    ar: [
+      'المستشفيات والمراكز الطبية',
+      'المدارس والجامعات',
+      'المراكز التجارية والترفيهية',
+      'المرافق الرياضية والثقافية',
+    ],
+    en: [
+      'Hospitals and medical centers',
+      'Schools and universities',
+      'Commercial and entertainment centers',
+      'Sports and cultural facilities',
+    ]
+  },
+  'contact.addressDetails': {
+    ar: [
+      'دمياط الجديدة، محافظة دمياط',
+      'جمهورية مصر العربية',
+      'الرمز البريدي: 34517',
+    ],
+    en: [
+      'New Damietta, Damietta Governorate',
+      'Arab Republic of Egypt',
+      'Postal Code: 34517',
+    ]
+  },
+  'contact.phoneDetails': {
+    ar: [
+      '+20 57 xxx-xxxx',
+      '+20 57 xxx-xxxx (فاكس)',
+      'الخط الساخن: 19xxx',
+    ],
+    en: [
+      '+20 57 xxx-xxxx',
+      '+20 57 xxx-xxxx (Fax)',
+      'Hotline: 19xxx',
+    ]
+  },
+  'contact.emailDetails': {
+    ar: [
+      'info@shibli-construction.com',
+      'projects@shibli-construction.com',
+      'hr@shibli-construction.com',
+    ],
+    en: [
+      'info@shibli-construction.com',
+      'projects@shibli-construction.com',
+      'hr@shibli-construction.com',
+    ]
+  },
+  'contact.workingHoursDetails': {
+    ar: [
+      'الأحد - الخميس: 8:00 - 17:00',
+      'الجمعة: 9:00 - 14:00',
+      'السبت: مغلق',
+    ],
+    en: [
+      'Sunday - Thursday: 8:00 - 17:00',
+      'Friday: 9:00 - 14:00',
+      'Saturday: Closed',
+    ]
+  },
+  'contact.locationDirections': {
+    ar: [
+      '5 دقائق من محطة قطار دمياط الجديدة',
+      '10 دقائق من مطار دمياط الجديد',
+      'مواقف مجانية متاحة',
+    ],
+    en: [
+      '5 minutes from New Damietta train station',
+      '10 minutes from New Damietta airport',
+      'Free parking available',
+    ]
+  }
+};
 
 const translations: Translations = {
   // Navigation
@@ -68,6 +195,9 @@ const translations: Translations = {
   'common.fullTime': { ar: 'دوام كامل', en: 'Full Time' },
   'common.years': { ar: 'سنوات', en: 'Years' },
   'common.required': { ar: '*', en: '*' },
+  'common.namePlaceholder': { ar: 'ادخل اسمك الكامل', en: 'Enter your full name' },
+  'common.emailPlaceholder': { ar: 'example@email.com', en: 'example@email.com' },
+  'common.phonePlaceholder': { ar: '+20 xxx xxx xxxx', en: '+20 xxx xxx xxxx' },
 
   // Careers Page
   'careers.title': { ar: 'الوظائف', en: 'Careers' },
@@ -208,19 +338,19 @@ const translations: Translations = {
   'services.housingDesc': { ar: 'نقوم بتنفيذ مشروعات سكنية متكاملة تشمل الوحدات السكنية والمرافق والخدمات المصاحبة.', en: 'We implement integrated residential projects including housing units, facilities and accompanying services.' },
   'services.infrastructureDesc': { ar: 'نساهم في تطوير البنية التحتية للمدن والمناطق الحضرية الجديدة بما يخدم التنمية الشاملة.', en: 'We contribute to developing infrastructure for cities and new urban areas to serve comprehensive development.' },
   'services.facilitiesDesc': { ar: 'نتولى إنشاء وصيانة المرافق العامة والحيوية التي تخدم المجتمع والمواطنين.', en: 'We undertake the construction and maintenance of public and vital facilities that serve the community and citizens.' },
-  'services.viewRelatedProjects': { ar: 'مشاهدة المشروعات ذات الصلة', en: 'View Related Projects' },
-  'services.workMethodology': { ar: 'منهجية العمل', en: 'Work Methodology' },
+  'services.relatedProjects': { ar: 'مشاهدة المشروعات ذات الصلة', en: 'View Related Projects' },
+  'services.methodology': { ar: 'منهجية العمل', en: 'Work Methodology' },
   'services.methodologySubtitle': { ar: 'نتبع منهجية علمية ومنظمة في تنفيذ جميع مشروعاتنا لضمان أعلى معايير الجودة', en: 'We follow a scientific and organized methodology in implementing all our projects to ensure the highest quality standards' },
   'services.planningDesign': { ar: 'التخطيط والتصميم', en: 'Planning and Design' },
   'services.planningDesc': { ar: 'دراسة شاملة للمشروع ووضع التصاميم الأولية', en: 'Comprehensive project study and initial design development' },
   'services.technicalStudies': { ar: 'الدراسات الفنية', en: 'Technical Studies' },
-  'services.studiesDesc': { ar: 'إجراء الدراسات الفنية والهندسية المطلوبة', en: 'Conducting required technical and engineering studies' },
-  'services.implementationFollowup': { ar: 'التنفيذ والمتابعة', en: 'Implementation and Follow-up' },
+  'services.technicalDesc': { ar: 'إجراء الدراسات الفنية والهندسية المطلوبة', en: 'Conducting required technical and engineering studies' },
+  'services.implementationMonitoring': { ar: 'التنفيذ والمتابعة', en: 'Implementation and Follow-up' },
   'services.implementationDesc': { ar: 'بدء العمل مع المتابعة المستمرة لجودة التنفيذ', en: 'Starting work with continuous monitoring of implementation quality' },
   'services.deliveryWarranty': { ar: 'التسليم والضمان', en: 'Delivery and Warranty' },
   'services.deliveryDesc': { ar: 'تسليم المشروع مع ضمان الجودة وخدمة ما بعد التسليم', en: 'Project delivery with quality guarantee and after-delivery service' },
   'services.haveProject': { ar: 'هل لديك مشروع؟', en: 'Do You Have a Project?' },
-  'services.contactToday': { ar: 'تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك', en: 'Contact us today for a free consultation and customized quote for your project' },
+  'services.haveProjectDesc': { ar: 'تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك', en: 'Contact us today for a free consultation and customized quote for your project' },
   'services.getQuote': { ar: 'احصل على عرض سعر', en: 'Get a Quote' },
   'services.viewPreviousWork': { ar: 'مشاهدة أعمالنا السابقة', en: 'View Our Previous Work' },
 
@@ -234,41 +364,67 @@ const translations: Translations = {
   'projects.publicFacilities': { ar: 'المرافق العامة', en: 'Public Facilities' },
   'projects.ongoingProjects': { ar: 'مشروعات قيد التنفيذ', en: 'Ongoing Projects' },
   'projects.completedProjects': { ar: 'مشروعات مكتملة', en: 'Completed Projects' },
-  'projects.ongoingTitle': { ar: 'المشروعات قيد التنفيذ', en: 'Ongoing Projects' },
-  'projects.ongoingSubtitle': { ar: 'نعمل حالياً على تنفيذ مشروعات استراتيجية متنوعة', en: 'We are currently working on implementing various strategic projects' },
-  'projects.completedTitle': { ar: 'المشروعات المكتملة', en: 'Completed Projects' },
-  'projects.completedSubtitle': { ar: 'مشروعات تم تسليمها بنجاح وحققت أهدافها التنموية', en: 'Projects successfully delivered and achieved their developmental goals' },
-  'projects.completionRate': { ar: 'نسبة الإنجاز', en: 'Completion Rate' },
-  'projects.budget': { ar: 'الميزانية:', en: 'Budget:' },
-  'projects.statsTitle': { ar: 'إحصائيات مشروعاتنا', en: 'Our Projects Statistics' },
-  'projects.statsSubtitle': { ar: 'أرقام تعكس خبرتنا وتميزنا في المجال', en: 'Numbers that reflect our experience and excellence in the field' },
+  'projects.ongoingDesc': { ar: 'نعمل حالياً على تنفيذ مشروعات استراتيجية متنوعة', en: 'We are currently working on implementing various strategic projects' },
+  'projects.completedDesc': { ar: 'مشروعات تم تسليمها بنجاح وحققت أهدافها التنموية', en: 'Projects successfully delivered and achieved their developmental goals' },
+  'projects.completionPercentage': { ar: 'نسبة الإنجاز', en: 'Completion Percentage' },
+  'projects.budget': { ar: 'الميزانية', en: 'Budget' },
+  'projects.projectStats': { ar: 'إحصائيات مشروعاتنا', en: 'Our Projects Statistics' },
+  'projects.projectStatsDesc': { ar: 'أرقام تعكس خبرتنا وتميزنا في المجال', en: 'Numbers that reflect our experience and excellence in the field' },
   'projects.completedProjectsCount': { ar: 'مشروع مكتمل', en: 'Completed Projects' },
   'projects.ongoingProjectsCount': { ar: 'مشروع قيد التنفيذ', en: 'Ongoing Projects' },
-  'projects.totalValue': { ar: 'جنيه قيمة المشروعات', en: 'EGP Total Project Value' },
+  'projects.projectsValue': { ar: 'جنيه قيمة المشروعات', en: 'EGP Projects Value' },
   'projects.satisfactionRate': { ar: 'معدل رضا العملاء', en: 'Customer Satisfaction Rate' },
-  'projects.partnershipQuestion': { ar: 'هل تريد أن نكون شريكك في مشروعك القادم؟', en: 'Do you want us to be your partner in your next project?' },
-  'projects.partnershipDesc': { ar: 'تواصل معنا لمناقشة متطلبات مشروعك والحصول على عرض سعر مفصل', en: 'Contact us to discuss your project requirements and get a detailed quote' },
-  'projects.startWithUs': { ar: 'ابدأ مشروعك معنا', en: 'Start Your Project With Us' },
-  'projects.knowCompany': { ar: 'تعرف على الشركة', en: 'Know the Company' },
+  'projects.partnerInProject': { ar: 'هل تريد أن نكون شريكك في مشروعك القادم؟', en: 'Do you want us to be your partner in your next project?' },
+  'projects.partnerDesc': { ar: 'تواصل معنا لمناقشة متطلبات مشروعك والحصول على عرض سعر مفصل', en: 'Contact us to discuss your project requirements and get a detailed quote' },
+  'projects.startProject': { ar: 'ابدأ مشروعك معنا', en: 'Start Your Project With Us' },
+  'projects.learnAboutCompany': { ar: 'تعرف على الشركة', en: 'Learn About the Company' },
+  'projects.newDamiettaBridge': { ar: 'جسر دمياط الجديد الاستراتيجي', en: 'New Damietta Strategic Bridge' },
+  'projects.bridgeDesc': { ar: 'مشروع استراتيجي لربط ضفتي النيل بطول 2.5 كيلومتر، يهدف لتسهيل حركة التجارة والمرور', en: 'Strategic project to connect the two banks of the Nile with a length of 2.5 kilometers, aimed at facilitating trade and traffic movement' },
+  'projects.integratedHousingPhase2': { ar: 'مجمع سكني متكامل - المرحلة الثانية', en: 'Integrated Housing Complex - Phase Two' },
+  'projects.housingDesc': { ar: 'مشروع سكني يضم 300 وحدة سكنية مع جميع المرافق والخدمات الأساسية', en: 'Housing project comprising 300 housing units with all basic facilities and services' },
+  'projects.roadNetworkDevelopment': { ar: 'تطوير شبكة الطرق الداخلية', en: 'Internal Road Network Development' },
+  'projects.roadDesc': { ar: 'تطوير وتحسين شبكة الطرق الداخلية للمدينة مع إضافة مسارات جديدة للمشاة والدراجات', en: 'Development and improvement of the city\'s internal road network with the addition of new pedestrian and bicycle paths' },
+  'projects.integratedHousingPhase1': { ar: 'مجمع سكني متكامل - المرحلة الأولى', en: 'Integrated Housing Complex - Phase One' },
+  'projects.housingPhase1Desc': { ar: 'مجمع سكني يضم 200 وحدة سكنية مع مسجد ومدرسة ومركز تجاري', en: 'Housing complex comprising 200 housing units with a mosque, school and commercial center' },
+  'projects.nasrUrbanBridge': { ar: 'كوبري النصر الحضري', en: 'Nasr Urban Bridge' },
+  'projects.nasrBridgeDesc': { ar: 'جسر حضري بطول 800 متر يربط بين منطقتين سكنيتين مهمتين', en: 'Urban bridge with a length of 800 meters connecting two important residential areas' },
+  'projects.damiettaMedicalCenter': { ar: 'مركز دمياط الطبي المتخصص', en: 'Damietta Specialized Medical Center' },
+  'projects.medicalCenterDesc': { ar: 'مركز طبي متكامل يضم عيادات خارجية وقسم طوارئ ومعامل تحليل', en: 'Integrated medical center including outpatient clinics, emergency department and analysis laboratories' },
+  'projects.inProgress': { ar: 'جاري التنفيذ', en: 'In Progress' },
+  'projects.completed': { ar: 'مكتمل', en: 'Completed' },
+  'projects.advancedStage': { ar: 'مرحلة متقدمة', en: 'Advanced Stage' },
+  'projects.underImplementation': { ar: 'قيد التنفيذ', en: 'Under Implementation' },
+  'projects.newDamietta': { ar: 'دمياط الجديدة، مصر', en: 'New Damietta, Egypt' },
+  'projects.damietta': { ar: 'دمياط، مصر', en: 'Damietta, Egypt' },
 
   // Contact Page
   'contact.subtitle': { ar: 'نحن هنا للإجابة على جميع استفساراتكم ومساعدتكم في تحقيق مشروعاتكم', en: 'We are here to answer all your inquiries and help you achieve your projects' },
   'contact.contactInfo': { ar: 'معلومات التواصل', en: 'Contact Information' },
-  'contact.contactInfoSubtitle': { ar: 'تواصل معنا عبر الطرق المختلفة المتاحة', en: 'Contact us through various available methods' },
-  'contact.addressLabel': { ar: 'العنوان', en: 'Address' },
+  'contact.contactInfoDesc': { ar: 'تواصل معنا عبر الطرق المختلفة المتاحة', en: 'Contact us through various available methods' },
+  'contact.address': { ar: 'العنوان', en: 'Address' },
   'contact.workingHours': { ar: 'ساعات العمل', en: 'Working Hours' },
   'contact.sendMessage': { ar: 'أرسل لنا رسالة', en: 'Send Us a Message' },
   'contact.ourLocation': { ar: 'موقعنا', en: 'Our Location' },
   'contact.mapLocation': { ar: 'خريطة الموقع', en: 'Location Map' },
-  'contact.differentDepartments': { ar: 'الأقسام المختلفة', en: 'Different Departments' },
-  'contact.departmentsSubtitle': { ar: 'تواصل مع القسم المناسب لاستفسارك للحصول على خدمة أفضل', en: 'Contact the appropriate department for your inquiry to get better service' },
+  'contact.departments': { ar: 'الأقسام المختلفة', en: 'Different Departments' },
+  'contact.departmentsDesc': { ar: 'تواصل مع القسم المناسب لاستفسارك للحصول على خدمة أفضل', en: 'Contact the appropriate department for your inquiry to get better service' },
   'contact.contactNow': { ar: 'تواصل الآن', en: 'Contact Now' },
   'contact.emergencyContact': { ar: 'اتصال طارئ؟', en: 'Emergency Contact?' },
   'contact.emergencyDesc': { ar: 'في حالة الطوارئ أو المشاكل العاجلة، يمكنك التواصل معنا على مدار الساعة', en: 'In case of emergencies or urgent problems, you can contact us around the clock' },
   'contact.hotline': { ar: 'الخط الساخن (24/7)', en: 'Hotline (24/7)' },
   'contact.emergencyNumber': { ar: 'رقم الطوارئ', en: 'Emergency Number' },
   'contact.subject': { ar: 'موضوع الرسالة', en: 'Message Subject' },
+  'contact.subjectPlaceholder': { ar: 'مثال: استفسار عن مشروع', en: 'Example: Project inquiry' },
+  'contact.messagePlaceholder': { ar: 'اكتب رسالتك هنا...', en: 'Write your message here...' },
   'contact.sendMessageBtn': { ar: 'إرسال الرسالة', en: 'Send Message' },
+  'contact.projectsDepart': { ar: 'قسم المشروعات', en: 'Projects Department' },
+  'contact.projectsDepartDesc': { ar: 'للاستفسار عن المشروعات الجديدة والقائمة', en: 'For inquiries about new and existing projects' },
+  'contact.salesDepart': { ar: 'قسم المبيعات', en: 'Sales Department' },
+  'contact.salesDepartDesc': { ar: 'للحصول على عروض الأسعار والاستشارات', en: 'For quotes and consultations' },
+  'contact.hrDepart': { ar: 'قسم الموارد البشرية', en: 'Human Resources Department' },
+  'contact.hrDepartDesc': { ar: 'للتوظيف والاستفسارات الوظيفية', en: 'For employment and job inquiries' },
+  'contact.supportDepart': { ar: 'خدمة العملاء', en: 'Customer Service' },
+  'contact.supportDepartDesc': { ar: 'للدعم الفني وخدمة ما بعد البيع', en: 'For technical support and after-sales service' },
 
   // NotFound Page
   'notFound.title': { ar: '404', en: '404' },
@@ -381,6 +537,10 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     return translations[key]?.[language] || key;
   };
 
+  const tArray = (key: string): string[] => {
+    return arrayTranslations[key]?.[language] || [key];
+  };
+
   useEffect(() => {
     const savedLanguage = localStorage.getItem('language') as Language;
     if (savedLanguage && (savedLanguage === 'ar' || savedLanguage === 'en')) {
@@ -394,7 +554,7 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   }, [direction, language]);
 
   return (
-    <LanguageContext.Provider value={{ language, direction, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, direction, setLanguage, t, tArray }}>
       {children}
     </LanguageContext.Provider>
   );

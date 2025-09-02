@@ -6,55 +6,35 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import heroImage from '@/assets/hero-construction.jpg';
 
 const Services = () => {
-  const { t } = useLanguage();
+  const { t, tArray } = useLanguage();
 
   const services = [
     {
       icon: Construction,
       title: t('services.bridges'),
-      description: 'نتخصص في تصميم وتنفيذ الجسور والطرق السريعة باستخدام أحدث التقنيات العالمية والمواد عالية الجودة.',
-      features: [
-        'تصميم الجسور المعلقة والكباري',
-        'إنشاء الطرق السريعة والدائرية',
-        'أعمال الرصف والبنية التحتية للطرق',
-        'صيانة وتطوير الطرق الموجودة',
-      ],
+      description: t('services.bridgesDesc'),
+      features: tArray('services.bridgesFeatures'),
       image: heroImage,
     },
     {
       icon: Building2,
       title: t('services.housing'),
-      description: 'نقوم بتنفيذ مشروعات سكنية متكاملة تشمل الوحدات السكنية والمرافق والخدمات المصاحبة.',
-      features: [
-        'مجمعات سكنية متكاملة',
-        'الوحدات السكنية الاقتصادية',
-        'المباني الإدارية والتجارية',
-        'مشروعات الإسكان الاجتماعي',
-      ],
+      description: t('services.housingDesc'),
+      features: tArray('services.housingFeatures'),
       image: heroImage,
     },
     {
       icon: Home,
       title: t('services.infrastructure'),
-      description: 'نساهم في تطوير البنية التحتية للمدن والمناطق الحضرية الجديدة بما يخدم التنمية الشاملة.',
-      features: [
-        'شبكات المياه والصرف الصحي',
-        'شبكات الكهرباء والاتصالات',
-        'تخطيط وتطوير المناطق الحضرية',
-        'البنية التحتية للمدن الجديدة',
-      ],
+      description: t('services.infrastructureDesc'),
+      features: tArray('services.infrastructureFeatures'),
       image: heroImage,
     },
     {
       icon: Wrench,
       title: t('services.facilities'),
-      description: 'نتولى إنشاء وصيانة المرافق العامة والحيوية التي تخدم المجتمع والمواطنين.',
-      features: [
-        'المستشفيات والمراكز الطبية',
-        'المدارس والجامعات',
-        'المراكز التجارية والترفيهية',
-        'المرافق الرياضية والثقافية',
-      ],
+      description: t('services.facilitiesDesc'),
+      features: tArray('services.facilitiesFeatures'),
       image: heroImage,
     },
   ];
@@ -72,7 +52,7 @@ const Services = () => {
             {t('services.title')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            نقدم حلولاً متكاملة في مجال المقاولات والتعمير تلبي احتياجات التنمية الحديثة
+            {t('services.subtitle')}
           </p>
         </div>
       </section>
@@ -118,7 +98,7 @@ const Services = () => {
                   
                   <Button variant="construction" size="lg" asChild>
                     <Link to="/projects">
-                      مشاهدة المشروعات ذات الصلة
+                      {t('services.relatedProjects')}
                       <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
                     </Link>
                   </Button>
@@ -134,10 +114,10 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              منهجية العمل
+              {t('services.methodology')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              نتبع منهجية علمية ومنظمة في تنفيذ جميع مشروعاتنا لضمان أعلى معايير الجودة
+              {t('services.methodologySubtitle')}
             </p>
           </div>
 
@@ -145,23 +125,23 @@ const Services = () => {
             {[
               {
                 step: '01',
-                title: 'التخطيط والتصميم',
-                description: 'دراسة شاملة للمشروع ووضع التصاميم الأولية',
+                title: t('services.planningDesign'),
+                description: t('services.planningDesc'),
               },
               {
                 step: '02',
-                title: 'الدراسات الفنية',
-                description: 'إجراء الدراسات الفنية والهندسية المطلوبة',
+                title: t('services.technicalStudies'),
+                description: t('services.technicalDesc'),
               },
               {
                 step: '03',
-                title: 'التنفيذ والمتابعة',
-                description: 'بدء العمل مع المتابعة المستمرة لجودة التنفيذ',
+                title: t('services.implementationMonitoring'),
+                description: t('services.implementationDesc'),
               },
               {
                 step: '04',
-                title: 'التسليم والضمان',
-                description: 'تسليم المشروع مع ضمان الجودة وخدمة ما بعد التسليم',
+                title: t('services.deliveryWarranty'),
+                description: t('services.deliveryDesc'),
               },
             ].map((process, index) => (
               <Card key={index} className="text-center hover:shadow-elevated transition-all duration-300 hover:-translate-y-2">
@@ -188,16 +168,16 @@ const Services = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            هل لديك مشروع؟
+            {t('services.haveProject')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك
+            {t('services.haveProjectDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button variant="construction" size="xl" asChild>
               <Link to="/contact">
-                احصل على عرض سعر
+                {t('services.getQuote')}
                 <ArrowRight className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
               </Link>
             </Button>
@@ -208,7 +188,7 @@ const Services = () => {
               asChild
             >
               <Link to="/projects">
-                مشاهدة أعمالنا السابقة
+                {t('services.viewPreviousWork')}
               </Link>
             </Button>
           </div>

@@ -7,71 +7,55 @@ import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
-  const { t } = useLanguage();
+  const { t, tArray } = useLanguage();
 
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'العنوان',
-      details: [
-        'دمياط الجديدة، محافظة دمياط',
-        'جمهورية مصر العربية',
-        'الرمز البريدي: 34517',
-      ],
+      title: t('contact.address'),
+      details: tArray('contact.addressDetails'),
     },
     {
       icon: Phone,
       title: t('contact.phone'),
-      details: [
-        '+20 57 xxx-xxxx',
-        '+20 57 xxx-xxxx (فاكس)',
-        'الخط الساخن: 19xxx',
-      ],
+      details: tArray('contact.phoneDetails'),
     },
     {
       icon: Mail,
       title: t('contact.email'),
-      details: [
-        'info@shibli-construction.com',
-        'projects@shibli-construction.com',
-        'hr@shibli-construction.com',
-      ],
+      details: tArray('contact.emailDetails'),
     },
     {
       icon: Clock,
-      title: 'ساعات العمل',
-      details: [
-        'الأحد - الخميس: 8:00 - 17:00',
-        'الجمعة: 9:00 - 14:00',
-        'السبت: مغلق',
-      ],
+      title: t('contact.workingHours'),
+      details: tArray('contact.workingHoursDetails'),
     },
   ];
 
   const departments = [
     {
-      name: 'قسم المشروعات',
+      name: t('contact.projectsDepart'),
       email: 'projects@shibli-construction.com',
       phone: '+20 57 xxx-1001',
-      description: 'للاستفسار عن المشروعات الجديدة والقائمة',
+      description: t('contact.projectsDepartDesc'),
     },
     {
-      name: 'قسم المبيعات',
+      name: t('contact.salesDepart'),
       email: 'sales@shibli-construction.com',
       phone: '+20 57 xxx-1002',
-      description: 'للحصول على عروض الأسعار والاستشارات',
+      description: t('contact.salesDepartDesc'),
     },
     {
-      name: 'قسم الموارد البشرية',
+      name: t('contact.hrDepart'),
       email: 'hr@shibli-construction.com',
       phone: '+20 57 xxx-1003',
-      description: 'للتوظيف والاستفسارات الوظيفية',
+      description: t('contact.hrDepartDesc'),
     },
     {
-      name: 'خدمة العملاء',
+      name: t('contact.supportDepart'),
       email: 'support@shibli-construction.com',
       phone: '+20 57 xxx-1004',
-      description: 'للدعم الفني وخدمة ما بعد البيع',
+      description: t('contact.supportDepartDesc'),
     },
   ];
 
@@ -84,7 +68,7 @@ const Contact = () => {
             {t('contact.title')}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-            نحن هنا للإجابة على جميع استفساراتكم ومساعدتكم في تحقيق مشروعاتكم
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
@@ -94,10 +78,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              معلومات التواصل
+              {t('contact.contactInfo')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              تواصل معنا عبر الطرق المختلفة المتاحة
+              {t('contact.contactInfoDesc')}
             </p>
           </div>
 
@@ -132,7 +116,7 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-4xl font-bold text-primary mb-8">
-                أرسل لنا رسالة
+                {t('contact.sendMessage')}
               </h2>
               
               <Card className="shadow-elevated">
@@ -145,7 +129,7 @@ const Contact = () => {
                         </Label>
                         <Input 
                           id="name" 
-                          placeholder="ادخل اسمك الكامل"
+                          placeholder={t('common.namePlaceholder')}
                           className="mt-2"
                         />
                       </div>
@@ -156,7 +140,7 @@ const Contact = () => {
                         <Input 
                           id="email" 
                           type="email"
-                          placeholder="example@email.com"
+                          placeholder={t('common.emailPlaceholder')}
                           className="mt-2"
                         />
                       </div>
@@ -169,17 +153,17 @@ const Contact = () => {
                         </Label>
                         <Input 
                           id="phone" 
-                          placeholder="+20 xxx xxx xxxx"
+                          placeholder={t('common.phonePlaceholder')}
                           className="mt-2"
                         />
                       </div>
                       <div>
                         <Label htmlFor="subject" className="text-base font-medium">
-                          موضوع الرسالة *
+                          {t('contact.subject')} *
                         </Label>
                         <Input 
                           id="subject" 
-                          placeholder="مثال: استفسار عن مشروع"
+                          placeholder={t('contact.subjectPlaceholder')}
                           className="mt-2"
                         />
                       </div>
@@ -191,14 +175,14 @@ const Contact = () => {
                       </Label>
                       <Textarea 
                         id="message"
-                        placeholder="اكتب رسالتك هنا..."
+                        placeholder={t('contact.messagePlaceholder')}
                         rows={6}
                         className="mt-2"
                       />
                     </div>
 
                     <Button variant="hero" size="lg" className="w-full">
-                      إرسال الرسالة
+                      {t('contact.sendMessageBtn')}
                       <Send className="h-5 w-5 mr-2 rtl:mr-0 rtl:ml-2" />
                     </Button>
                   </form>
@@ -209,35 +193,29 @@ const Contact = () => {
             {/* Map Placeholder */}
             <div>
               <h2 className="text-4xl font-bold text-primary mb-8">
-                موقعنا
+                {t('contact.ourLocation')}
               </h2>
               
               <Card className="shadow-elevated">
                 <CardContent className="p-0">
                   <div className="bg-muted h-80 rounded-lg flex items-center justify-center">
-                    <div className="text-center text-muted-foreground">
-                      <MapPin className="h-16 w-16 mx-auto mb-4" />
-                      <p className="text-lg font-medium">خريطة الموقع</p>
-                      <p className="text-sm">دمياط الجديدة، محافظة دمياط</p>
-                      <p className="text-sm">جمهورية مصر العربية</p>
-                    </div>
+                  <div className="text-center text-muted-foreground">
+                    <MapPin className="h-16 w-16 mx-auto mb-4" />
+                    <p className="text-lg font-medium">{t('contact.mapLocation')}</p>
+                    <p className="text-sm">{t('contact.addressDetails')[0]}</p>
+                    <p className="text-sm">{t('contact.addressDetails')[1]}</p>
+                  </div>
                   </div>
                 </CardContent>
               </Card>
               
               <div className="mt-6 space-y-4">
-                <div className="flex items-center space-x-3 rtl:space-x-reverse text-muted-foreground">
-                  <MapPin className="h-5 w-5 text-secondary flex-shrink-0" />
-                  <span>5 دقائق من محطة قطار دمياط الجديدة</span>
-                </div>
-                <div className="flex items-center space-x-3 rtl:space-x-reverse text-muted-foreground">
-                  <MapPin className="h-5 w-5 text-secondary flex-shrink-0" />
-                  <span>10 دقائق من مطار دمياط الجديد</span>
-                </div>
-                <div className="flex items-center space-x-3 rtl:space-x-reverse text-muted-foreground">
-                  <MapPin className="h-5 w-5 text-secondary flex-shrink-0" />
-                  <span>مواقف مجانية متاحة</span>
-                </div>
+                {tArray('contact.locationDirections').map((direction: string, index: number) => (
+                  <div key={index} className="flex items-center space-x-3 rtl:space-x-reverse text-muted-foreground">
+                    <MapPin className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>{direction}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -249,10 +227,10 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
-              الأقسام المختلفة
+              {t('contact.departments')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              تواصل مع القسم المناسب لاستفسارك للحصول على خدمة أفضل
+              {t('contact.departmentsDesc')}
             </p>
           </div>
 
@@ -279,7 +257,7 @@ const Contact = () => {
                   </div>
                   
                   <Button variant="professional" size="sm">
-                    تواصل الآن
+                    {t('contact.contactNow')}
                     <ArrowRight className="h-4 w-4 mr-2 rtl:mr-0 rtl:ml-2" />
                   </Button>
                 </CardContent>
@@ -293,10 +271,10 @@ const Contact = () => {
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
-            اتصال طارئ؟
+            {t('contact.emergencyContact')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            في حالة الطوارئ أو المشاكل العاجلة، يمكنك التواصل معنا على مدار الساعة
+            {t('contact.emergencyDesc')}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -304,7 +282,7 @@ const Contact = () => {
               <div className="text-3xl font-bold text-secondary mb-2" dir="ltr">
                 19xxx
               </div>
-              <div className="text-primary-foreground/80">الخط الساخن (24/7)</div>
+              <div className="text-primary-foreground/80">{t('contact.hotline')}</div>
             </div>
             
             <div className="hidden sm:block w-px h-12 bg-primary-foreground/30"></div>
@@ -313,7 +291,7 @@ const Contact = () => {
               <div className="text-3xl font-bold text-secondary mb-2" dir="ltr">
                 +20 xxx xxx xxxx
               </div>
-              <div className="text-primary-foreground/80">رقم الطوارئ</div>
+              <div className="text-primary-foreground/80">{t('contact.emergencyNumber')}</div>
             </div>
           </div>
         </div>
