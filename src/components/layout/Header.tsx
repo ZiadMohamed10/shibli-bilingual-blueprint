@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { theme, setTheme } = useTheme();
   const location = useLocation();
 
   const navigation = [
@@ -21,6 +23,10 @@ const Header = () => {
 
   const toggleLanguage = () => {
     setLanguage(language === 'ar' ? 'en' : 'ar');
+  };
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
   const isActive = (path: string) => location.pathname === path;
@@ -56,6 +62,17 @@ const Header = () => {
               </Link>
             ))}
             
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              className="flex items-center space-x-2 rtl:space-x-reverse"
+              title={theme === 'light' ? t('theme.dark') : t('theme.light')}
+            >
+              {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            </Button>
+            
             {/* Language Toggle */}
             <Button
               variant="ghost"
@@ -70,6 +87,15 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4 rtl:space-x-reverse">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleTheme}
+              title={theme === 'light' ? t('theme.dark') : t('theme.light')}
+            >
+              {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+            </Button>
+            
             <Button
               variant="ghost"
               size="sm"

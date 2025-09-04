@@ -181,6 +181,10 @@ const translations: Translations = {
   'contact.phone': { ar: 'الهاتف', en: 'Phone' },
   'contact.email': { ar: 'البريد الإلكتروني', en: 'Email' },
   
+  // Theme
+  'theme.light': { ar: 'الوضع النهاري', en: 'Light Mode' },
+  'theme.dark': { ar: 'الوضع الليلي', en: 'Dark Mode' },
+  
   // Footer
   'footer.quickLinks': { ar: 'روابط سريعة', en: 'Quick Links' },
   'footer.address': { ar: 'العنوان', en: 'Address' },
