@@ -37,7 +37,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">روابط سريعة</h4>
+            <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -71,7 +71,7 @@ const Footer = () => {
             <div className="flex items-start space-x-3 rtl:space-x-reverse">
               <MapPin className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="font-medium">العنوان</p>
+                <p className="font-medium">{t('footer.address')}</p>
                 <p className="text-primary-foreground/80 text-sm">
                   دمياط الجديدة، محافظة دمياط<br />
                   جمهورية مصر العربية
@@ -102,7 +102,7 @@ const Footer = () => {
             <div className="flex items-start space-x-3 rtl:space-x-reverse">
               <Clock className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="font-medium">ساعات العمل</p>
+                <p className="font-medium">{t('footer.workingHours')}</p>
                 <p className="text-primary-foreground/80 text-sm">
                   الأحد - الخميس: 8:00 - 17:00
                 </p>
@@ -115,14 +115,14 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-primary-foreground/70 text-sm">
-              © 2024 شركة الشبلي للمقاولات والتعمير. جميع الحقوق محفوظة.
+              {t('footer.copyrightText')}
             </p>
             <div className="flex space-x-6 rtl:space-x-reverse mt-4 md:mt-0">
               <Link to="/privacy" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-smooth">
-                سياسة الخصوصية
+                {t('footer.privacyPolicy')}
               </Link>
               <Link to="/terms" className="text-primary-foreground/70 hover:text-primary-foreground text-sm transition-smooth">
-                الشروط والأحكام
+                {t('footer.termsConditions')}
               </Link>
             </div>
           </div>

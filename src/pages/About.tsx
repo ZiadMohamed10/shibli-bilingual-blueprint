@@ -198,7 +198,7 @@ const About = () => {
               <div className="w-32 h-32 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
                 <Users className="h-16 w-16 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">المهندس / أحمد الشبلي</h3>
+              <h3 className="text-xl font-bold mb-2">{t('team.ahmed')}</h3>
               <p className="text-primary-foreground/80">{t('about.chairmanTitle')}</p>
             </div>
             
@@ -206,7 +206,7 @@ const About = () => {
               <div className="w-32 h-32 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
                 <Users className="h-16 w-16 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">المهندس / محمد الشبلي</h3>
+              <h3 className="text-xl font-bold mb-2">{t('team.mohamed')}</h3>
               <p className="text-primary-foreground/80">{t('about.operationsTitle')}</p>
             </div>
             
@@ -214,7 +214,7 @@ const About = () => {
               <div className="w-32 h-32 mx-auto mb-4 bg-secondary/20 rounded-full flex items-center justify-center">
                 <Users className="h-16 w-16 text-secondary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">المهندسة / فاطمة الشبلي</h3>
+              <h3 className="text-xl font-bold mb-2">{t('team.fatima')}</h3>
               <p className="text-primary-foreground/80">{t('about.financialTitle')}</p>
             </div>
           </div>

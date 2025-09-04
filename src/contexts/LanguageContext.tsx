@@ -180,6 +180,31 @@ const translations: Translations = {
   'contact.title': { ar: 'اتصل بنا', en: 'Contact Us' },
   'contact.phone': { ar: 'الهاتف', en: 'Phone' },
   'contact.email': { ar: 'البريد الإلكتروني', en: 'Email' },
+  
+  // Footer
+  'footer.quickLinks': { ar: 'روابط سريعة', en: 'Quick Links' },
+  'footer.address': { ar: 'العنوان', en: 'Address' },
+  'footer.workingHours': { ar: 'ساعات العمل', en: 'Working Hours' },
+  'footer.privacyPolicy': { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
+  'footer.termsConditions': { ar: 'الشروط والأحكام', en: 'Terms & Conditions' },
+  'footer.copyrightText': { ar: '© 2025 شركة الشبلي للمقاولات والتعمير. جميع الحقوق محفوظة.', en: '© 2025 Al-Shibli Construction & Development Company. All rights reserved.' },
+  
+  // Management Team Names
+  'team.ahmed': { ar: 'المهندس / أحمد الشبلي', en: 'Eng. Ahmed Al-Shibli' },
+  'team.mohamed': { ar: 'المهندس / محمد الشبلي', en: 'Eng. Mohamed Al-Shibli' },
+  'team.fatima': { ar: 'المهندسة / فاطمة الشبلي', en: 'Eng. Fatima Al-Shibli' },
+  
+  // Project Dates and Budget Labels
+  'projects.projectDate': { ar: 'تاريخ المشروع', en: 'Project Date' },
+  'projects.projectBudget': { ar: 'الميزانية', en: 'Budget' },
+  
+  // Specific Project Dates
+  'projects.newDamiettaBridgeDate': { ar: 'يناير 2023 - ديسمبر 2024', en: 'January 2023 - December 2024' },
+  'projects.newDamiettaBridgeBudget': { ar: '500 مليون جنيه', en: '500 Million EGP' },
+  'projects.integratedHousingPhase2Date': { ar: 'مارس 2024 - مارس 2026', en: 'March 2024 - March 2026' },
+  'projects.integratedHousingPhase2Budget': { ar: '300 مليون جنيه', en: '300 Million EGP' },
+  'projects.roadNetworkDate': { ar: 'يونيو 2024 - يونيو 2025', en: 'June 2024 - June 2025' },
+  'projects.roadNetworkBudget': { ar: '150 مليون جنيه', en: '150 Million EGP' },
 
   // Common
   'common.more': { ar: 'المزيد', en: 'More' },
