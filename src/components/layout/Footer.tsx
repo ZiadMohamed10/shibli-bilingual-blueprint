@@ -72,9 +72,8 @@ const Footer = () => {
               <MapPin className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="font-medium">{t('footer.address')}</p>
-                <p className="text-primary-foreground/80 text-sm">
-                  دمياط الجديدة، محافظة دمياط<br />
-                  جمهورية مصر العربية
+                <p className="text-primary-foreground/80 text-sm whitespace-pre-line">
+                  {t('footer.addressDetails')}
                 </p>
               </div>
             </div>
@@ -104,7 +103,7 @@ const Footer = () => {
               <div>
                 <p className="font-medium">{t('footer.workingHours')}</p>
                 <p className="text-primary-foreground/80 text-sm">
-                  الأحد - الخميس: 8:00 - 17:00
+                  {t('footer.workingDays')}
                 </p>
               </div>
             </div>

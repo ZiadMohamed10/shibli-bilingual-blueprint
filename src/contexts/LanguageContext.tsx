@@ -184,7 +184,9 @@ const translations: Translations = {
   // Footer
   'footer.quickLinks': { ar: 'روابط سريعة', en: 'Quick Links' },
   'footer.address': { ar: 'العنوان', en: 'Address' },
+  'footer.addressDetails': { ar: 'دمياط الجديدة، محافظة دمياط\nجمهورية مصر العربية', en: 'New Damietta, Damietta Governorate\nArab Republic of Egypt' },
   'footer.workingHours': { ar: 'ساعات العمل', en: 'Working Hours' },
+  'footer.workingDays': { ar: 'الأحد - الخميس: 8:00 - 17:00', en: 'Sunday - Thursday: 8:00 AM - 5:00 PM' },
   'footer.privacyPolicy': { ar: 'سياسة الخصوصية', en: 'Privacy Policy' },
   'footer.termsConditions': { ar: 'الشروط والأحكام', en: 'Terms & Conditions' },
   'footer.copyrightText': { ar: '© 2025 شركة الشبلي للمقاولات والتعمير. جميع الحقوق محفوظة.', en: '© 2025 Al-Shibli Construction & Development Company. All rights reserved.' },
