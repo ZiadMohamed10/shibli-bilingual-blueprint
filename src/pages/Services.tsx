@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 import heroImage from '@/assets/hero-construction.jpg';
 
 const Services = () => {
@@ -58,7 +59,7 @@ const Services = () => {
       </section>
 
       {/* Services Detail */}
-      <section className="py-20 bg-background">
+      <AnimatedSection className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="space-y-20">
             {services.map((service, index) => (
@@ -107,10 +108,10 @@ const Services = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -162,10 +163,10 @@ const Services = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <AnimatedSection animation="animate-fade-in" delay={300} className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             {t('services.haveProject')}
@@ -193,7 +194,7 @@ const Services = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

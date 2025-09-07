@@ -1,6 +1,7 @@
 import { Target, Eye, Award, Users } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 import constructionWorkers from '@/assets/construction-workers.jpg';
 
 const About = () => {
@@ -71,7 +72,7 @@ const About = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-background">
+      <AnimatedSection className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -103,10 +104,10 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Values */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -135,10 +136,10 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Timeline */}
-      <section className="py-20 bg-background">
+      <AnimatedSection animation="animate-fade-in" delay={300} className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -181,10 +182,10 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Leadership Team */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <AnimatedSection animation="animate-scale-in" delay={400} className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">
             {t('about.managementTeam')}
@@ -219,7 +220,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

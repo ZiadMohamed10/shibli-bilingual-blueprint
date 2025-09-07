@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 import heroImage from '@/assets/hero-construction.jpg';
 import constructionWorkers from '@/assets/construction-workers.jpg';
 
@@ -183,7 +184,7 @@ const Projects = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-12 bg-background border-b">
+      <AnimatedSection className="py-12 bg-background border-b">
         <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-4">
             <div className="flex items-center mb-4">
@@ -202,10 +203,10 @@ const Projects = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Projects Tabs */}
-      <section className="py-20 bg-background">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="ongoing" className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
@@ -248,10 +249,10 @@ const Projects = () => {
             </TabsContent>
           </Tabs>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Stats Section */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-fade-in" delay={300} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -280,10 +281,10 @@ const Projects = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <AnimatedSection animation="animate-scale-in" delay={400} className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             {t('projects.partnerInProject')}
@@ -311,7 +312,7 @@ const Projects = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

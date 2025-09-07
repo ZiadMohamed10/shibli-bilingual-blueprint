@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 import heroImage from '@/assets/hero-construction.jpg';
 import constructionWorkers from '@/assets/construction-workers.jpg';
 
@@ -89,7 +90,7 @@ const Home = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-background">
+      <AnimatedSection className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -127,10 +128,10 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Featured Projects */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -181,10 +182,12 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* About Preview */}
-      <section 
+      <AnimatedSection 
+        animation="animate-fade-in"
+        delay={400}
         className="py-20 relative bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${constructionWorkers})` }}
       >
@@ -221,7 +224,7 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

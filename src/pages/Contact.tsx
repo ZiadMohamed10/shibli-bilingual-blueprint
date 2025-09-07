@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 
 const Contact = () => {
   const { t, tArray } = useLanguage();
@@ -74,7 +75,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Information */}
-      <section className="py-20 bg-background">
+      <AnimatedSection className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -107,10 +108,10 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Contact Form & Map */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
@@ -220,10 +221,10 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Departments */}
-      <section className="py-20 bg-background">
+      <AnimatedSection animation="animate-fade-in" delay={300} className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -265,10 +266,10 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Emergency Contact */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <AnimatedSection animation="animate-scale-in" delay={400} className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             {t('contact.emergencyContact')}
@@ -295,7 +296,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };

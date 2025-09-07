@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { AnimatedSection } from '@/hooks/useScrollAnimation';
 import { useState } from 'react';
 import constructionWorkers from '@/assets/construction-workers.jpg';
 
@@ -115,7 +116,7 @@ const Careers = () => {
       </section>
 
       {/* Company Culture */}
-      <section className="py-20 bg-background">
+      <AnimatedSection className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -144,10 +145,10 @@ const Careers = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Job Openings */}
-      <section className="py-20 bg-muted/30">
+      <AnimatedSection animation="animate-scale-in" delay={200} className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
@@ -337,10 +338,10 @@ const Careers = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Contact HR */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <AnimatedSection animation="animate-fade-in" delay={300} className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             {t('careers.hrContact')}
@@ -359,7 +360,7 @@ const Careers = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </div>
   );
 };
